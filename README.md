@@ -7,7 +7,7 @@ Una aplicación de gestión de tareas moderna construida con **C# .NET** en el b
 - ✅ Crear, editar y eliminar tableros (Boards)
 - ✅ Organizar tareas en listas (Lists)
 - ✅ Crear y gestionar tareas (Tasks)
-- ✅ Interfaz intuitiva y responsiva
+- ✅ Interfaz intuitiva
 - ✅ API RESTful 
 
 ## 📋 Requisitos Previos
@@ -15,7 +15,7 @@ Una aplicación de gestión de tareas moderna construida con **C# .NET** en el b
 ### Backend
 - **.NET 8.0 o superior** 
 - **SQLite** 
-- **Visual Studio 2022** o **Visual Studio Code**
+- **Visual Studio 2022**
 
 ### Frontend
 - **Node.js 16+**
