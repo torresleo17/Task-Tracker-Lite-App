@@ -15,7 +15,7 @@ Una aplicación de gestión de tareas moderna construida con **C# .NET** en el b
 ### Backend
 - **.NET 8.0 o superior** 
 - **SQLite** 
-- **Visual Studio 2022** y **Visual Studio Code**
+- **Visual Studio 2022** o **Visual Studio Code**
 
 ### Frontend
 - **Node.js 16+**
@@ -43,14 +43,17 @@ Abre el archivo `appsettings.json` y verifica/actualiza la cadena de conexión:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=.;Database=TaskTrackerLiteDb;Trusted_Connection=true;Encrypt=false;"
+    "DefaultConnection": "Data Source=tasktrackerlite.db"
   }
 }
 ```
+
 #### Paso 4: Aplica las migraciones
 ```bash
 dotnet ef database update
 ```
+
+> **Nota:** La base de datos SQLite (`tasktrackerlite.db`) se creará automáticamente en la carpeta del proyecto al ejecutar las migraciones.
 
 #### Paso 5: Ejecuta la aplicación
 ```bash
@@ -61,6 +64,7 @@ La API estará disponible en: `https://localhost:5000` o `https://localhost:5001
 
 Puedes probar los endpoints en: `https://localhost:5000/swagger` (si Swagger está configurado)
 
+---
 
 ### 2️⃣ Frontend (React)
 
@@ -76,7 +80,7 @@ npm install
 
 #### Paso 3: Configura la URL de la API
 
-Abre `src/api/api/board.js`,`src/api/api/list.js`,`src/api/api/task.js` (o donde esté configurada la URL base) y asegúrate de que apunte a tu backend:
+Abre `src/api/api/board.js`, `src/api/api/list.js`, `src/api/api/task.js` (o donde esté configurada la URL base) y asegúrate de que apunte a tu backend:
 
 ```javascript
 const API_BASE_URL = 'https://localhost:5000/api';
@@ -149,7 +153,7 @@ Task-Tracker-Lite-App/
 ### Backend
 - **.NET 8** - Framework
 - **Entity Framework Core** - ORM
-- **SQL Server** - Base de datos
+- **SQLite** - Base de datos
 - **C#** - Lenguaje de programación
 
 ### Frontend
@@ -165,7 +169,8 @@ Task-Tracker-Lite-App/
 ### El backend no inicia
 - Verifica que .NET esté instalado: `dotnet --version`
 - Comprueba la cadena de conexión en `appsettings.json`
-- Asegúrate de que SQLite esté correcto
+- Asegúrate de que las migraciones se aplicaron correctamente: `dotnet ef database update`
+- Verifica que el archivo `tasktrackerlite.db` se creó en la carpeta del proyecto
 
 ### El frontend no carga
 - Verifica que Node.js está instalado: `node --version`
@@ -190,6 +195,4 @@ Task-Tracker-Lite-App/
 
 **Jonathan Leonel Mendoza** - [GitHub](https://github.com/torresleo17)
 
-## 📄 Licencia
 
-Este proyecto está abierto y disponible bajo la licencia MIT.
